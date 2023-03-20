@@ -1,9 +1,10 @@
+
 gcloud config set compute/region us-west1
 gcloud config set compute/zone us-west1-a
 
 gcloud compute disks create --size=200GB --zone=us-west1-a nfs-disk
 gcloud container clusters create torchserve --machine-type n1-standard-8 --num-nodes 1
-gcloud container clusters get-credentials torchserve
+gcloud container clusters get-credentials openmind
 cd GKE
 helm install mynfs ./nfs-provisioner/
 
