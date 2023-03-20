@@ -4,21 +4,22 @@ metadata:
   name: nfs
 spec:
   capacity:
-    storage: 10Gi
+    storage: 200Gi
   accessModes:
     - ReadWriteMany
   nfs:
-    server: 10.79.243.38  # Modify nfs-server IP
+    # FIXED: Use internal DNS name
+    server: 10.48.12.199
     path: "/"
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: model-store-claim # See to that this match PVC name in torchserve
+  name: model-store-claim
 spec:
   accessModes:
     - ReadWriteMany
   storageClassName: ""
   resources:
     requests:
-      storage: 2Gi
+      storage: 200Gi

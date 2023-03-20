@@ -176,7 +176,7 @@ kubectl get pvc,pv -n default
 ```
 
 Your output should look similar to
-
+ 
 ```bash
 NAME                   CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM         STORAGECLASS   REASON   AGE
 persistentvolume/nfs   10Gi       RWX            Retain           Bound    default/nfs                           20h

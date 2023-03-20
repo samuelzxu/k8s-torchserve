@@ -5,19 +5,16 @@ metadata:
   name: torchserve
   labels:
     app: torchserve
-  annotations:
-    prometheus.io/scrape: 'true'
-    prometheus.io/port: '8082'
 spec:
   ports:
   - name: preds
-    port: {{ .Values.torchserve.inference_port }}
-    targetPort: ts 
+    port: 8080
+    targetPort: ts
   - name: mdl
-    port: {{ .Values.torchserve.management_port }}
+    port: 8081
     targetPort: ts-management
   - name: metrics
-    port: {{ .Values.torchserve.metrics_port }}
+    port: 8082
     targetPort: ts-metrics
   type: LoadBalancer
   selector:
@@ -46,14 +43,14 @@ spec:
       containers:
       - name: torchserve
         image: {{ .Values.torchserve_image }}
-        args: ["torchserve", "--start",  "--model-store", "/home/model-server/shared/model-store/", "--ts-config", "/home/model-server/shared/config/config.properties"]
+        args: ["torchserve", "--start",  "--models", "all", "--model-store", "/home/model-server/shared/model-store/", "--ts-config", "/home/model-server/shared/config/config.properties"]
         ports:
         - name: ts
-          containerPort: {{ .Values.torchserve.inference_port }}
+          containerPort: 8080
         - name: ts-management
-          containerPort: {{ .Values.torchserve.management_port }}
+          containerPort: 8081
         - name: ts-metrics
-          containerPort: {{ .Values.torchserve.metrics_port }}
+          containerPort: 8082
         imagePullPolicy: IfNotPresent
         volumeMounts:
           - mountPath: {{ .Values.torchserve.pvd_mount }}
