@@ -20,6 +20,7 @@ kubectl exec --tty pod/model-store-pod -- mkdir /pv/config/
 kubectl cp ./config.properties model-store-pod:/pv/config/config.properties
 
 kubectl exec --tty pod/model-store-pod -- ls -lR /pv/
+kubectl delete po model-store-pod
 
 cd ../Helm
 helm install ts .
