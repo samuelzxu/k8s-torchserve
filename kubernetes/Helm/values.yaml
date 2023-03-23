@@ -15,7 +15,7 @@ torchserve:
   persistence.size: 50Gi
 
 deployment:
-  replicas: 1
+  replicas: 2
 
 persistentVolume:
   name: model-store-claim

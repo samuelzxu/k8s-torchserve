@@ -1,6 +1,0 @@
-numpy
-scipy
-librosa
-unidecode
-inflect
-librosa

@@ -1,3 +1,0 @@
-fabric2
-boto3
-retrying

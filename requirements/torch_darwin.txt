@@ -1,5 +1,0 @@
-#pip install torch torchvision torchaudio
-torch==1.13.1; sys_platform == 'darwin'
-torchvision==0.14.1; sys_platform == 'darwin'
-torchtext==0.14.1; sys_platform == 'darwin'
-torchaudio==0.13.1; sys_platform == 'darwin'

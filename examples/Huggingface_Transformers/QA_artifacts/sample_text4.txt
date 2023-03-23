@@ -1,1 +1,0 @@
-{"question" :"How is the world economy?", "context": "The world economy is in a bad situation now."}

@@ -1,1 +1,0 @@
-{"question" :"What is NLP", "context": "it is about techniques to process natural language"}
